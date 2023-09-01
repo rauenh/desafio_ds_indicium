@@ -107,7 +107,7 @@ Para executar o projeto é necessário seguir os seguintes passos:
 - Para executar a previsão dos dados, executar o arquivo
 <ul>
 
-- predict_model_sarimax.ipynb[data](https://github.com/rauenh/desafio_ds_indicium/blob/main/Notebooks/Predict/predict_model_sarimax.ipynb)
+- [predict_model_sarimax.ipynb](https://github.com/rauenh/desafio_ds_indicium/blob/main/Notebooks/Predict/predict_model_sarimax.ipynb)
     - como saída o arquivo csv `predicted.csv` é gerado com os valores previstos pelo modelo.
 </ul>
 

@@ -14,7 +14,7 @@ Este projeto consiste na análise de uma série temporal econômica do PIB mundi
 - **Coleta de Dados:** Importar os dados em formato Excel.
 
 ## Pré Processamento
-Sequência disponível no Notebook `v2_preprocessing` disponível em  Notebooks/Pre Processamento/[data](https://github.com/rauenh/desafio_ds_indicium/tree/main/Notebooks/Pre%20Processamento)
+Sequência disponível no Notebook `v2_preprocessing` disponível em  [Notebooks/Pre Processamento/](https://github.com/rauenh/desafio_ds_indicium/tree/main/Notebooks/Pre%20Processamento)
 
 - **Compreensão do Problema:** Analisar o conjunto de dados para entender a sua distribuição, identificar valores ausentes, detectar possíveis outliers, etc. Foi realizada uma breve pesquisa geopolítica (WorldBank, IMF) para entender como poderiam ser agrupados os países de acordo com as regiões existentes nas colunas do dataframe de acordo com algumas características econômicas similares. 
 
@@ -32,7 +32,7 @@ Sequência disponível no Notebook `v2_preprocessing` disponível em  Notebooks/
 O output desse notebook é o arquivo `df_transposed_copy_inputting_v19.csv` que pode ser encontrado na pasta Data/Output
 
 ## EDA
-Sequência disponível no Notebook `v2_eda_final` disponível em  /Notebooks/EDA/[data](https://github.com/rauenh/desafio_ds_indicium/tree/main/Notebooks/EDA)
+Sequência disponível no Notebook `v2_eda_final` disponível em [Notebooks/EDA](https://github.com/rauenh/desafio_ds_indicium/tree/main/Notebooks/EDA)
 
 - **Decomposição Sazonal:** Realizar uma decomposição sazonal dos dados de PIB de cada país para entender a sazonalidade e tendência temporal. A biblioteca statsmodels será utilizada para esse propósito. Foram realizados decomposições com dois períodos: 1 ano e 4 anos e hipóteses foram estabelecidas para determinar a diferença nos resultados obtidos.
 
@@ -52,7 +52,7 @@ Sequência disponível nos Notebooks:
 - `v2_modeling_fb_prophet_all_countries`
 - `v2_modeling_sarima`
 - `v2_modeling_hw`
-Todos disponíveis no caminho: Notebooks/Modelagem[data](https://github.com/rauenh/desafio_ds_indicium/tree/main/Notebooks/Modelagem)
+Todos disponíveis no caminho: [Notebooks/Modelagem](https://github.com/rauenh/desafio_ds_indicium/tree/main/Notebooks/Modelagem)
 
 Descrição resumida dos notebooks:
 
@@ -61,15 +61,15 @@ Descrição resumida dos notebooks:
 - No notebook `v2_modeling_fb_prophet_all_countries` há a modelagem dos dados com o modelo Prophet.
 Cada modelo será treinado com dados de 1980 a 2023 e testado com dados de 2024 a 2028.
 ## Performance dos Modelos
-Sequência disponível no notebook `v2_modeling_final_metrics` disponível em Notebooks/Modelagem[data](https://github.com/rauenh/desafio_ds_indicium/tree/main/Notebooks/Modelagem) 
+Sequência disponível no notebook `v2_modeling_final_metrics` disponível em [Notebooks/Modelagem](https://github.com/rauenh/desafio_ds_indicium/tree/main/Notebooks/Modelagem) 
 
 **Métricas de Performance:** As métricas MAE (Erro Absoluto Médio), RMSE (Raiz do Erro Quadrático Médio) e MAPE (Erro Percentual Absoluto Médio) são importantes para avaliar o desempenho de um modelo de ciência de dados. Elas medem a diferença entre os valores previstos pelo modelo e os valores reais observados. <br/><br/> - O MAE mede a magnitude média dos erros, enquanto o RMSE dá mais peso aos erros grandes, pois eleva ao quadrado as diferenças antes de calcular a média. <br/><br/> - O MAPE mede o erro em termos percentuais, o que pode ser útil quando os valores observados variam em magnitude. <br/><br/> Ao comparar diferentes modelos, é importante escolher aquele que apresenta o menor valor para essas métricas, indicando que suas previsões são mais precisas.
 - No notebook v2_modeling_final_metrics há o cross validation dos modelos que melhor performaram (SARIMAX e Prophet) para haver a escolha por um modelo final para a realização da predição. Para o cross-validation do modelo SARIMAX foi utilizado a ferramenta  `TimeSeriesSplit` do `sklearn`. Para o cross validation do modelo Prophet foi utilizada a ferramenta `cross_validation` do `prophet`
 
 ### Previsão
-O arquivo com os valores previstos pelo modelo foi nomeado de `predicted.csv`. E foi salvo na pasta Data/Output[data](https://github.com/rauenh/desafio_ds_indicium/tree/main/Projeto/Data/Output)
+O arquivo com os valores previstos pelo modelo foi nomeado de `predicted.csv`. E foi salvo na pasta [Data/Output](https://github.com/rauenh/desafio_ds_indicium/tree/main/Projeto/Data/Output)
 
-O arquivo com a modelagem de previsão está disponível na pasta Predict[data](https://github.com/rauenh/desafio_ds_indicium/tree/main/Notebooks/Predict)
+O arquivo com a modelagem de previsão está disponível na pasta [Predict](https://github.com/rauenh/desafio_ds_indicium/tree/main/Notebooks/Predict)
 # Como executar o projeto
 
 Para executar o projeto é necessário seguir os seguintes passos:
@@ -97,9 +97,9 @@ Para executar o projeto é necessário seguir os seguintes passos:
  - Para executar o preenchimento dos dados faltantes e a modelagem dos dados, executar os arquivos 
  <ul>
 
- - v2_preprocessing.ipynb[data](https://github.com/rauenh/desafio_ds_indicium/blob/main/Notebooks/Pre%20Processamento/v2_preprocessing.ipynb)
+ - [v2_preprocessing.ipynb](https://github.com/rauenh/desafio_ds_indicium/blob/main/Notebooks/Pre%20Processamento/v2_preprocessing.ipynb)
     - como saída o arquivo csv `df_transposed_copy_inputting_v19.csv` é gerado com dados dos países e regiões com valores nulos preenchidos.
- - v2_eda_final.ipynb
+ - [v2_eda_final.ipynb](https://github.com/rauenh/desafio_ds_indicium/blob/main/Notebooks/EDA/v2_eda_final.ipynb)
     - EDA complementar dos dados.
 
 </ul>

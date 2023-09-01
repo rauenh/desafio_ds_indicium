@@ -4,10 +4,10 @@
 /.ipynb_checkpoints
 /Projeto/.ipynb_checkpoints
 .~lock.
-/Projeto/Data/Output/predictions_autoarima.csv
-/Projeto/Data/Output/predictions_hw.csv
-/Projeto/Data/Output/predictions_prophet_all.csv
-/Projeto/Data/Output/predictions_prophet.csv
-/Projeto/Data/Output/predictions_sarimax_exog.csv
-/Projeto/Data/Output/predictions_sarimax_no_exog.csv
-/Projeto/Data/Output/simple_exponential.csv
+Projeto/Data/Output/.predictions_autoarima.csv
+Projeto/Data/Output/.predictions_hw.csv
+Projeto/Data/Output/.predictions_prophet_all.csv
+Projeto/Data/Output/.predictions_prophet.csv
+Projeto/Data/Output/.predictions_sarimax_exog.csv
+Projeto/Data/Output/.predictions_sarimax_no_exog.csv
+Projeto/Data/Output/.simple_exponential.csv

@@ -66,7 +66,11 @@ Descrição resumida dos notebooks:
 ## Performance dos Modelos Escolhidos
 Sequência disponível no notebook `v2_modeling_final_metrics` disponível em [Notebooks/Modelagem](https://github.com/rauenh/desafio_ds_indicium/tree/main/Notebooks/Modelagem) 
 
-**Métricas de Performance:** As métricas escolhidas para este projeto foram MAE (Erro Absoluto Médio), RMSE (Raiz do Erro Quadrático Médio) e MAPE (Erro Percentual Absoluto Médio) pois são importantes para avaliar o desempenho de um modelo de ciência de dados. <br/><br/>Elas medem a diferença entre os valores previstos pelo modelo e os valores reais observados. <br/> - O MAE mede a magnitude média dos erros, enquanto o RMSE dá mais peso aos erros grandes, pois eleva ao quadrado as diferenças antes de calcular a média. <br/> - O MAPE mede o erro em termos percentuais, o que pode ser útil quando os valores observados variam em magnitude. <br/>Ao comparar diferentes modelos, é importante escolher aquele que apresenta o menor valor para essas métricas, indicando que suas previsões são mais precisas.
+**Métricas de Performance:** As métricas escolhidas para este projeto foram MAE (Erro Absoluto Médio), RMSE (Raiz do Erro Quadrático Médio) e MAPE (Erro Percentual Absoluto Médio) pois são importantes para avaliar o desempenho de um modelo de ciência de dados. <br/><br/>Elas medem a diferença entre os valores previstos pelo modelo e os valores reais observados. <br/> - O MAE mede a magnitude média dos erros, enquanto o RMSE dá mais peso aos erros grandes, pois eleva ao quadrado as diferenças antes de calcular a média. <br/> - O MAPE mede o erro em termos percentuais, o que pode ser útil quando os valores observados variam em magnitude. <br/>Ao comparar diferentes modelos, é importante escolher aquele que apresenta o menor valor para essas métricas, indicando que suas previsões são mais precisas.<br/>
+Para escolher os modelos que iriam para o Cross-Validation foram utilizadas as métricas MAE e RSME pois o MAE mede a magnitude média dos erros de previsão, fornecendo uma medida simples e intuitiva da precisão do modelo. Ele é particularmente útil quando se deseja uma medida robusta a outliers, pois não é tão sensível a valores extremos quanto outras métricas.
+
+O RMSE, por outro lado, dá mais peso aos erros grandes, pois eleva ao quadrado as diferenças antes de calcular a média. Isso o torna útil quando se deseja penalizar erros grandes e selecionar um modelo que minimize o impacto desses erros.
+
 A seguir as métricas MAE para os modelos utilizados:<br/>
 | Model             | mean     | median   | std      | min      | max      | cv       |
 |-------------------|----------|----------|----------|----------|----------|----------|
@@ -76,6 +80,7 @@ A seguir as métricas MAE para os modelos utilizados:<br/>
 | sarimax no exog   | 1.534781 | 1.070000 | 1.674111 | 0.220000 | 15.530000| 1.090782 |
 | autoarima         | 2.098202 | 1.630000 | 1.872705 | 0.140000 | 16.760000| 0.892529 |
 | Holt-Winters      | 1.659518 | 1.360000 | 1.853458 | 0.180000 | 18.170000| 1.116865 |
+<br/>
 As métricas RSME para os modelos utilizados:<br/>
 | Model             | mean     | median   | std      | min      | max      | cv       |
 |-------------------|----------|----------|----------|----------|----------|----------|
@@ -86,18 +91,9 @@ As métricas RSME para os modelos utilizados:<br/>
 | autoarima         | 2.255132 | 1.690000 | 2.284594 | 0.190000 | 24.850000| 1.013064 |
 | Holt-Winters      | 1.888246 | 1.470000 | 2.561355 | 0.230000 | 25.670000| 1.356474 |
 
+
 <br/>
-As métricas MAPE para os modelos utilizados:<br/>
-| Model             | mean      | median    | std       | min       | max        | cv        |
-|-------------------|-----------|-----------|-----------|-----------|------------|-----------|
-| prophet           | 65.165499 | 32.221438 | 137.931462| 2.306472  | 1776.535147| 2.116633  |
-| simple_smoothing  | inf       | 38.778678 | nan       | 2.168885  | inf        | nan       |
-| sarimax           | 55.824796 | 34.970081 | 101.852378| 6.796140  | 1251.420640| 1.824501  |
-| sarimax no exog   | 55.824796 | 34.970081 | 101.852378| 6.796140  | 1251.420640| 1.824501  |
-| autoarima         | 56.938106 | 51.854980 | 49.667745 | 7.408767  | 624.253914 | 0.872311  |
-| Holt-Winters      | inf       | 39.797832 | nan       | 4.955530  | inf        | nan       |
-<br/>
-- No notebook `v2_modeling_final_metrics` há o cross validation dos modelos que melhor performaram com base no MAE (SARIMAX e Prophet) para haver a escolha por um modelo final para a realização da predição. Para o cross-validation do modelo SARIMAX foi utilizado a ferramenta  `TimeSeriesSplit` do `sklearn`. Para o cross validation do modelo Prophet foi utilizada a ferramenta `cross_validation` do `prophet`. No caso, o modelo que melhor performou após o Cross-Validation foi o SARIMAX, sendo este o modelo escolhido para realizar a previsão final. 
+- No notebook `v2_modeling_final_metrics` há o cross validation dos modelos que melhor performaram com base no MAE (SARIMAX) e RSME (Prophet) para haver a escolha por um modelo final para a realização da predição. Para o cross-validation do modelo SARIMAX foi utilizado a ferramenta  `TimeSeriesSplit` do `sklearn`. Para o cross validation do modelo Prophet foi utilizada a ferramenta `cross_validation` do `prophet`. No caso, o modelo que melhor performou após o Cross-Validation foi o SARIMAX, sendo este o modelo escolhido para realizar a previsão final. 
 
 ### Previsão
 O arquivo com os valores previstos pelo modelo foi nomeado de `predicted.csv`. E foi salvo na pasta [Data/Output](https://github.com/rauenh/desafio_ds_indicium/tree/main/Projeto/Data/Output)

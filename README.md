@@ -48,6 +48,7 @@ Para confirmar a estacionariedade de uma série temporal será utilizado dois te
 - **Análise comparativa entre ADF e KPSS:** É realizada uma análise comparativa da estacionariedade de séries temporais usando os testes ADF (Augmented Dickey-Fuller) e KPSS (Kwiatkowski-Phillips-Schmidt-Shin) com o intuito de metrificar qual era o teste mais adequado para se confirmar a estacionariedade ou não estacionariedade dos dados. 
 
 ## Modelagem
+Cada modelo será treinado com dados de 1980 a 2023 e testado com dados de 2024 a 2028.
 Sequência disponível nos Notebooks:
 - `v2_modeling_fb_prophet_all_countries`
 - `v2_modeling_sarima`
@@ -56,15 +57,28 @@ Todos disponíveis no caminho: [Notebooks/Modelagem](https://github.com/rauenh/d
 
 Descrição resumida dos notebooks:
 
-- No notebook `v2_modeling_hw` há a modelagem dos dados com os modelos Holt-Winters e Simple Exponential Smoothing
-- No notebook `v2_modeling_sarima` há a modelagem dos dados com os modelos Autoarim e SARIMAX (Com variáveis exógenas e sem variáveis exógenas)
-- No notebook `v2_modeling_fb_prophet_all_countries` há a modelagem dos dados com o modelo Prophet.
-Cada modelo será treinado com dados de 1980 a 2023 e testado com dados de 2024 a 2028.
-## Performance dos Modelos
+- No notebook `v2_modeling_hw` há a modelagem dos dados com os modelos Holt-Winters e Simple Exponential Smoothing e suas métricas
+- No notebook `v2_modeling_sarima` há a modelagem dos dados com os modelos Autoarim e SARIMAX (Com variáveis exógenas e sem variáveis exógenas) e suas métricas.
+- No notebook `v2_modeling_fb_prophet_all_countries` há a modelagem dos dados com o modelo Prophet e suas métricas.
+
+
+
+## Performance dos Modelos Escolhidos
 Sequência disponível no notebook `v2_modeling_final_metrics` disponível em [Notebooks/Modelagem](https://github.com/rauenh/desafio_ds_indicium/tree/main/Notebooks/Modelagem) 
 
-**Métricas de Performance:** As métricas MAE (Erro Absoluto Médio), RMSE (Raiz do Erro Quadrático Médio) e MAPE (Erro Percentual Absoluto Médio) são importantes para avaliar o desempenho de um modelo de ciência de dados. Elas medem a diferença entre os valores previstos pelo modelo e os valores reais observados. <br/><br/> - O MAE mede a magnitude média dos erros, enquanto o RMSE dá mais peso aos erros grandes, pois eleva ao quadrado as diferenças antes de calcular a média. <br/><br/> - O MAPE mede o erro em termos percentuais, o que pode ser útil quando os valores observados variam em magnitude. <br/><br/> Ao comparar diferentes modelos, é importante escolher aquele que apresenta o menor valor para essas métricas, indicando que suas previsões são mais precisas.
-- No notebook v2_modeling_final_metrics há o cross validation dos modelos que melhor performaram (SARIMAX e Prophet) para haver a escolha por um modelo final para a realização da predição. Para o cross-validation do modelo SARIMAX foi utilizado a ferramenta  `TimeSeriesSplit` do `sklearn`. Para o cross validation do modelo Prophet foi utilizada a ferramenta `cross_validation` do `prophet`
+**Métricas de Performance:** As métricas escolhidas para este projeto foram MAE (Erro Absoluto Médio), RMSE (Raiz do Erro Quadrático Médio) e MAPE (Erro Percentual Absoluto Médio) pois são importantes para avaliar o desempenho de um modelo de ciência de dados. <br/><br/>Elas medem a diferença entre os valores previstos pelo modelo e os valores reais observados. <br/><br/> - O MAE mede a magnitude média dos erros, enquanto o RMSE dá mais peso aos erros grandes, pois eleva ao quadrado as diferenças antes de calcular a média. <br/><br/> - O MAPE mede o erro em termos percentuais, o que pode ser útil quando os valores observados variam em magnitude. <br/><br/> Ao comparar diferentes modelos, é importante escolher aquele que apresenta o menor valor para essas métricas, indicando que suas previsões são mais precisas.
+
+| Model             | mean     | median   | std      | min      | max      | cv       |
+|-------------------|----------|----------|----------|----------|----------|----------|
+| prophet           | 1.672544 | 0.965000 | 1.991240 | 0.130000 | 18.670000| 1.190546 |
+| simple_smoothing  | 1.574254 | 1.130000 | 1.900460 | 0.070000 | 18.420000| 1.207213 |
+| sarimax           | 1.534781 | 1.070000 | 1.674111 | 0.220000 | 15.530000| 1.090782 |
+| sarimax no exog   | 1.534781 | 1.070000 | 1.674111 | 0.220000 | 15.530000| 1.090782 |
+| autoarima         | 2.098202 | 1.630000 | 1.872705 | 0.140000 | 16.760000| 0.892529 |
+| Holt-Winters      | 1.659518 | 1.360000 | 1.853458 | 0.180000 | 18.170000| 1.116865 |
+
+
+- No notebook `v2_modeling_final_metrics` há o cross validation dos modelos que melhor performaram com base no MAE (SARIMAX e Prophet) para haver a escolha por um modelo final para a realização da predição. Para o cross-validation do modelo SARIMAX foi utilizado a ferramenta  `TimeSeriesSplit` do `sklearn`. Para o cross validation do modelo Prophet foi utilizada a ferramenta `cross_validation` do `prophet`. No caso, o modelo que melhor performou após o Cross-Validation foi o SARIMAX, sendo este o modelo escolhido para realizar a previsão final. 
 
 ### Previsão
 O arquivo com os valores previstos pelo modelo foi nomeado de `predicted.csv`. E foi salvo na pasta [Data/Output](https://github.com/rauenh/desafio_ds_indicium/tree/main/Projeto/Data/Output)

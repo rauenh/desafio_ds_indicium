@@ -81,6 +81,7 @@ A seguir as métricas MAE para os modelos utilizados:<br/>
 | autoarima         | 2.098202 | 1.630000 | 1.872705 | 0.140000 | 16.760000| 0.892529 |
 | Holt-Winters      | 1.659518 | 1.360000 | 1.853458 | 0.180000 | 18.170000| 1.116865 |
 <br/>
+
 As métricas RSME para os modelos utilizados:<br/>
 | Model             | mean     | median   | std      | min      | max      | cv       |
 |-------------------|----------|----------|----------|----------|----------|----------|

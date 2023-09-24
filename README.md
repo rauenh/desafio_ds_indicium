@@ -82,6 +82,8 @@ A seguir as métricas MAE para os modelos utilizados:<br/>
 | Holt-Winters      | 1.659518 | 1.360000 | 1.853458 | 0.180000 | 18.170000| 1.116865 |
 <br/>
 
+
+
 As métricas RSME para os modelos utilizados:<br/>
 | Model             | mean     | median   | std      | min      | max      | cv       |
 |-------------------|----------|----------|----------|----------|----------|----------|
